@@ -21,8 +21,8 @@
 <form action="/about" method="POST">
     {% for row in collection %}
     {% if 'images' in row['data']%}
-        <img class="center-fit" src='{{ row['data']['images'][0]['url'] }}'>
-    {% endif %} }
+        <img class="center-fit" src={{ row['data']['images'][0]['url'] }}>
+    {% endif %}
         <p><a href="{{ url_for('obj', id=row['_id']) }}">{{ row['data']['name'] }}</a></p>
     {% endfor %}
 </form>
