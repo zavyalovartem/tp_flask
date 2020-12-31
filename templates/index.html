@@ -1,0 +1,57 @@
+<html>
+   <head>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Опять двойка?</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+               <form class="navbar-form navbar-right">
+                  <div class="form-group">
+                     <input type="text" placeholder="Email" class="form-control">
+                  </div>
+                  <div class="form-group">
+                     <input type="password" placeholder="Password" class="form-control">
+                  </div>
+                  <button type="submit" class="btn btn-success">Войти</button>
+               </form>
+            </div>
+            <!--/.navbar-collapse -->
+         </div>
+      </nav>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+         <div class="container">
+            <h1>Привет, дружок!</h1>
+            <p>Мы поможем управлять твоими планами на отметку в четверти и подскажем, что нужно делать, чтобы получить пятерку. А также рассчитаем твою отметку за четверть, если ты все еще не знаешь о среднем арифметическом, а правила округления известны тебе под названием &laquo;в пользу ученика&raquo;.</p>
+            <p><a class="btn btn-primary btn-lg" href="https://ru.wikipedia.org/wiki/%D0%9E%D0%BA%D1%80%D1%83%D0%B3%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5" role="button">Об округлении &raquo;</a></p>
+            <h2>Итак, приступим!</h2>
+            <form action="/" method="POST">
+               <div class="form-group">
+                  <label for="MarksInput">Отметки</label>
+                  <input type="text" class="form-control" name="MarksInput" id="MarksInput" aria-describedby="gradeHelp" placeholder="Ваши отметки">
+                  <small id="gradeHelp" class="form-text text-muted">Мы никому не сообщим твои отметки, напиши их любым способом.</small>
+               </div>
+               <button type="submit" class="btn btn-primary">Рассчитать!</button>
+               {% if mean %}
+                    <p>Средняя отметка: {{ "%.2f"|format(mean) }}. До пятерки за четверть надо еще {{ count }} пятерок.
+               {% endif %}
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

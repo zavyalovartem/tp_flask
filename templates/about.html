@@ -1,0 +1,29 @@
+<h1>Goskatalog</h1>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 30%;
+            max-height: 30vh;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<form action="/about" method="POST">
+    {% for row in collection %}
+    {% if 'images' in row['data']%}
+        <img class="center-fit" src='{{ row['data']['images'][0]['url'] }}'>
+    {% endif %} }
+        <p><a href="{{ url_for('obj', id=row['_id']) }}">{{ row['data']['name'] }}</a></p>
+    {% endfor %}
+</form>
+</body>
